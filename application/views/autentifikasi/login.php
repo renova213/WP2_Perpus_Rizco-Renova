@@ -9,41 +9,30 @@
                         <div class="col-lg">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb4">Halaman Login!!</h1>
+                                    <h1 class="h4 text-gray-900 mb4">PERPUSTAKAAN</h1>
                                 </div>
-                                <?= $this->session->flashdata('pesan'); ?>
-                                <form class="user" method="post" action="<?= base_url(); ?>">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" value="<?=
-                                                                                                            set_value('email'); ?>" id="email" placeholder="Masukkan Alamat
-Email" name="email">
-                                        <?= form_error(
-                                            'email',
-                                            '<small class="text-danger pl-3">',
-                                            '</small>'
-                                        ); ?>
-                                    </div>
-                                    <div class="form-group">
+	                                   <?php
+                                        if(!$this->session->flashdata('pesan') == ''){
+                                            echo $this->session->flashdata('pesan');
+                                        }
+                                        ?>
+		<form class="user" method="post" action="<?= base_url('autentifikasi'); ?>">
+			<div class="form-group">                 
+				<input type="text" class="form-control form-control-user" value="<?= set_value('email'); ?>" id="email" placeholder="Masukkan Alamat Email" name="email">
+                            <?= form_error('email', '<small class="text-danger pl-3">', '</small>');?>     </div>
+         							<div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
-                                        <?= form_error(
-                                            'password',
-                                            '<small class="text-danger pl-3">',
-                                            '</small>'
-                                        ); ?>
+                                        <?= form_error('password','<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
-                                    <button type="submit" class="btn
-btn-primary btn-user btn-block">
-                                        Masuk
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">Masuk
                                     </button>
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="<?=
-                                                            base_url('autentifikasi/lupaPassword'); ?>">Lupa Password?</a>
+                                    <a class="small" href="<?= base_url('autentifikasi/lupaPassword'); ?>">Lupa Password?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="<?=
-                                                            base_url('autentifikasi/registrasi'); ?>">Daftar Member!</a>
+                                    <a class="small" href="<?= base_url('autentifikasi/registrasi'); ?>">Daftar Member!</a>
                                 </div>
                             </div>
                         </div>
